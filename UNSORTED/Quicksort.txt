@@ -1,0 +1,107 @@
+Quicksort
+
+Characteristics:
+- Non-stable
+- Requires shuffling
+- slightly faster than mergesort (in general)
+- no additional memory(in-place)
+- overhead for tiny subarrays (use insertion sort for <=10 size)
+
+Principles:
+1. Take any(first) element, and sort left and right elements so that no left elements are greater than this element, no right elements are less that this element.
+2. Sort left and right parts separately as in p.1
+
+Pseudo code:
+
+//shuffle
+public void shuffle(array) {
+	//For instance, Knuth shuffling: go by i, get random index from 0 to i inclusively and exchange
+}
+
+//sort
+public void sort(array, lo, hi) {
+	//don't sort if indices equal - check condition
+	j = partition(array, lo, hi);
+	sort(array, lo, j - 1);
+	sort(array, j + 1, hi);
+}
+
+//partition
+public void partition(array, lo, hi) {
+	i = lo; // start from second-to-first
+	j = hi - 1; //start from the last
+
+    //outer endless loop 
+    while(True) {
+		while(array[++i] < array[lo]) {
+			//check i <= hi
+		}
+
+		while(array[--j] > array[lo]) {
+			//redundant (as check with array[lo] value limits) check j >= lo
+		}
+
+		//we might cross indices, when left and right parts are continuously sorted, so no need to exchange, just break on condition i > j
+		//exchange(array, i, j)
+	}
+	//here indices crossed, j is left to i
+	//so j is in the part which is lesser array[lo]
+	//accordingly, i is in the greater part
+	
+	//to make the total order from array[lo] to array[j],
+	//excange values:
+	//exchange(array, lo, j)
+	//since that point array[j] contains former separator value from the first element
+
+	//return separator index j
+	return j;
+}
+
+Python code:
+
+def main():
+    l = [4, 6, 3, 2, 8, 5, 9, 0]
+    //suffle(l)
+
+    sort(l, 0, len(l)-1)
+    print(l)
+
+
+def sort(l, lo, hi):
+    if lo >= hi:
+        return
+    j = partition(l, lo, hi)
+    sort(l, lo, j-1)
+    sort(l, j+1, hi)
+
+
+def partition(l, lo, hi):
+    i = lo + 1
+    j = hi
+    while True:
+        while l[i] < l[lo]:
+            i += 1
+            if i >= hi:
+                break
+
+        while l[j] > l[lo]:
+            j -= 1
+            if j <= lo:
+                break
+
+        if i >= j:
+            break
+        exch(l, i, j)
+
+    exch(l, lo, j)
+    return j
+
+
+def exch(l, p, q):
+    copy = l[p]
+    l[p] = l[q]
+    l[q] = copy
+
+
+if __name__ == '__main__':
+    main()
