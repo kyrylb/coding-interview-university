@@ -1,13 +1,16 @@
 Quicksort
 
 Characteristics:
-- Non-stable
+- Not stable
 - Requires shuffling
 - slightly faster than mergesort (in general)
-- no additional memory(in-place)
-- overhead for tiny subarrays (use insertion sort for <=10 size)
+- in-place
+- overhead for tiny subarrays (use insertion sort for <=10 size - improvement 1)
+- improvement 2 - try to use pivot near the middle (median of 3)
 - recursive
 - does recursion after it does the work (different from merge)
+- worst case: number of compares is quadratic
+- average case: number of compares 1.39 N lg N. More compares, less data moving tha mergesort - quicker
 
 Principles:
 1. Take any(first) element, and sort left and right elements so that no left elements are greater than this element, no right elements are less that this element.
