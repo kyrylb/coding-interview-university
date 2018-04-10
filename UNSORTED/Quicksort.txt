@@ -6,6 +6,8 @@ Characteristics:
 - slightly faster than mergesort (in general)
 - no additional memory(in-place)
 - overhead for tiny subarrays (use insertion sort for <=10 size)
+- recursive
+- does recursion after it does the work (different from merge)
 
 Principles:
 1. Take any(first) element, and sort left and right elements so that no left elements are greater than this element, no right elements are less that this element.
