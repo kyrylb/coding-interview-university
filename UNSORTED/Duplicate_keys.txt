@@ -1,0 +1,8 @@
+Duplicate keys
+
+Mergesort with duplicate keys - always 1/2 N lg N - N lg N
+Quicksort - will be quadratic unless partitioning stops on equal keys
+
+For quicksort - mistake to put all items equal to the partitioning value on one side
+
+Dijkstra 3-way partitioning: reduces running time from linearithmic to linear in broad class of applications.

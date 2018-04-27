@@ -11,6 +11,9 @@ Characteristics:
 - does recursion after it does the work (different from merge)
 - worst case: number of compares is quadratic
 - average case: number of compares 1.39 N lg N. More compares, less data moving tha mergesort - quicker
+- shuffle is needed for performance guarantee. If elements are in order, partitioning just find max(or min) element on each iteration, so performance degrades.
+- depth of recursion: logarithmic extra space
+- best choice of pivot item - median (for instance, median-of-3)
 
 Principles:
 1. Take any(first) element, and sort left and right elements so that no left elements are greater than this element, no right elements are less that this element.

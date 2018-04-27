@@ -1,0 +1,4 @@
+Quick-select
+- variation of quicksort
+- takes linear time on average
+- worst case is N^2 compares, but random shuffling provides guarantee agains this
